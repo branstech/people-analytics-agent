@@ -1,7 +1,1 @@
-import 'dotenv/config';
-import express from 'express';
-import OpenAI from 'openai';
-const app=express(),port=process.env.PORT||3000;
-const ai=new OpenAI({apiKey:process.env.OPENAI_API_KEY});
-app.use(express.json({limit:'2mb'}));app.use(express.static('public'));
-app.post('/api/analisar',async(req,res)=>{try{let{vaga,curriculo}=req.body;if(!vaga||!curriculo)return res.status(400).json({error:'Informe vaga e curriculo'});let input=`Analise compatibilidade vaga x curriculo. Gere relatorio em markdown com nota %, pontos fortes, lacunas, riscos, criterios, perguntas e parecer. Nao discr
+import 'dotenv/config';import express from'express';import OpenAI from'openai';const a=express(),o=new OpenAI({apiKey:process.env.OPENAI_API_KEY});a.use(express.json());a.use(express.static('public'));a.post('/api/analisar',async(r,s)=>{let{vaga:v,curriculo:c}=r.body;if(!v||!c)return s.status(400).json({error:'Informe vaga e curriculo'});let q='Analise vaga x curriculo sem discriminar. Relatorio markdown: resumo, nota %, pontos fortes, lacunas, riscos, criterios, recomendacao
